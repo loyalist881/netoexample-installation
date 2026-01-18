@@ -26,7 +26,7 @@ public class Main {
 
         zipFiles(zipPath, saves);
 
-        deleteFiles(saves);
+        //deleteFiles(saves);
 
         openZip(zipPath, basePath);
 
