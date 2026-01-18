@@ -5,6 +5,7 @@ import java.io.IOException;
 public class InstallationEx {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
+        String ln = System.lineSeparator();
         String basePath = "E:\\Games";
 
         // Создание директорий
@@ -20,14 +21,14 @@ public class InstallationEx {
 
         for (File dir : new File[]{srcDir, srcMain, srcTest, resDir, resDrawables, resVectors, resIcons, savegames, temp}) {
             if (dir.mkdirs()) {
-                System.out.println("Директория " + dir.getName() + " создана.");
-                sb.append("Директория ").append(dir.getName()).append(" создана.").append(System.lineSeparator());
+                System.out.println("Директория " + dir.getPath() + " создана.");
+                sb.append("Директория ").append(dir.getPath()).append(" создана.").append(ln);
             } else if (dir.exists()) {
-                System.out.println("Директория " + dir.getName() + " уже существует.");
-                sb.append("Директория ").append(dir.getName()).append(" уже существует.").append(System.lineSeparator());
+                System.out.println("Директория " + dir.getPath() + " уже существует.");
+                sb.append("Директория ").append(dir.getPath()).append(" уже существует.").append(ln);
             } else {
-                System.out.println("Не удалось создать директорию " + dir.getName() + ".");
-                sb.append("Не удалось создать директорию ").append(dir.getName()).append(".").append(System.lineSeparator());
+                System.out.println("Не удалось создать директорию " + dir.getPath() + ".");
+                sb.append("Не удалось создать директорию ").append(dir.getPath()).append(".").append(ln);
             }
         }
 
@@ -39,19 +40,19 @@ public class InstallationEx {
         for (File file : new File[]{srcMainFile, srcUtilsFile, tempTemp}) {
             try {
                 if (file.createNewFile()) {
-                    System.out.println("Файл " + file.getName() + " создан.");
-                    sb.append("Файл ").append(file.getName()).append(" создан.").append(System.lineSeparator());
+                    System.out.println("Файл " + file.getPath() + " создан.");
+                    sb.append("Файл ").append(file.getPath()).append(" создан.").append(ln);
                 } else if (file.exists()) {
-                    System.out.println("Файл " + file.getName() + " уже существует.");
-                    sb.append("Файл ").append(file.getName()).append(" уже существует.").append(System.lineSeparator());
+                    System.out.println("Файл " + file.getPath() + " уже существует.");
+                    sb.append("Файл ").append(file.getPath()).append(" уже существует.").append(ln);
                 } else {
-                    System.out.println("Не удалось создать файл " + file.getName() + ".");
-                    sb.append("Не удалось создать файл ").append(file.getName()).append(".").append(System.lineSeparator());
+                    System.out.println("Не удалось создать файл " + file.getPath() + ".");
+                    sb.append("Не удалось создать файл ").append(file.getPath()).append(".").append(ln);
                 }
             } catch (IOException e) {
                 System.out.println(e.getMessage());
                 sb.append("Ошибка при создании файла ").append(file.getPath()).append(": ")
-                        .append(e.getMessage()).append(System.lineSeparator());
+                        .append(e.getMessage()).append(ln);
             }
         }
 
@@ -63,3 +64,5 @@ public class InstallationEx {
         }
     }
 }
+
+
